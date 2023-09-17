@@ -1,7 +1,7 @@
 <?php
     session_start();
     $tittle="Generador de contraseñas";
-    $passw= isset ($_SESSION['passw']) ? $_SESSION['passw']:[];
+    $passw= isset ($_SESSION['passw']) ? $_SESSION['passw']:null;
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -17,12 +17,16 @@
         <h1 class= "border-bottom" ><?php echo $tittle ?> </h1>
     </header>
     <main>
-        <form action="generador.php" method='post'>
-            <div class="mb-3">
-                <p>Genera tu contraseña</p>
-            </div>
-            <div class="btn btn-success"> Generar Ahora </div>
-        </form>
+        <?php if($passw===null): ?>
+            <p>Genera tu contraseña </p>
+            <a href="proccess2.php" class="btn btn-success"> Generar ahora </a>
+        <?php else: ?>
+            <p> La contraseña generada es:</p>
+            <span class="h1 text-success my-5 d-block"><?php echo $passw ?> </span>
+            <a href="proccess2.php" class="btn btn-success"> Generar otra </a>
+            <a href="limpiar.php" class="btn btn-danger">Limpiar</a>
+        <?php endif;?>
+
     </main>   
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
 
