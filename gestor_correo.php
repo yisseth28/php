@@ -23,11 +23,13 @@
                         <?php if($error != null): ?>
                             <div class="alert alert-danger" role="alert">
                                 <?= $error ?>
+                                <?php unset($_SESSION['error']);?>
                             </div>
                         <?php endif; ?>
                         <?php if($success != null): ?>
                             <div class="alert alert-success" role="alert">
                                 <?= $success ?>
+                                <?php unset($_SESSION['success']);?>
                             </div>
                         <?php endif; ?>
 
