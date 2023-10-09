@@ -1,0 +1,39 @@
+create schema consultorio_clinico;
+
+//TABLA TIPO_DOCUMENTO
+
+CREATE TABLE tipo_documento(
+id INT AUTO_INCREMENT PRIMARY KEY,
+tipo_doc VARCHAR(30) NOT NULL UNIQUE,
+activo  tinyint(1) 
+);
+
+//TABLA PACIENTES
+
+CREATE TABLE pacientes(
+id INT AUTO_INCREMENT PRIMARY KEY,
+tip_doc VARCHAR(30),
+documento varchar(20) UNIQUE,
+nombre VARCHAR(50) NOT NULL,
+apellidos VARCHAR(50) NOT NULL, 
+telefono VARCHAR(50) NOT NULL, 
+correo VARCHAR(30), 
+domicilio VARCHAR(50),
+edad INT NOT NULL,
+sexo CHAR(1) NOT NULL,
+create_ad DATETIME,
+update_ad DATETIME
+);
+
+//TABLE USUARIOS
+
+CREATE TABLE usuarios(
+id INT AUTO_INCREMENT PRIMARY KEY,
+nombre VARCHAR(50),
+correo VARCHAR(30),
+password VARCHAR(60),
+tipo VARCHAR(10),
+estado tinyint(1),
+create_ad DATETIME,
+update_ad DATETIME
+);
